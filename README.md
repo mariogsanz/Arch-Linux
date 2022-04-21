@@ -34,3 +34,26 @@ Comprobamos que tenemos una dirección asignada
 ping -c 1 archlinux.org
 ```
 Comprobamos que podemos hacer `ping`
+
+* Actualizamos la hora del sistema
+
+```shell
+timedatectl set-ntp true
+```
+
+* Configuramos los discos
+
+```shell
+fdisk -l
+```
+Localizamos el disco en el que instalaremos Arch Linux (si solo hemos puesto un disco sera `/dev/sda`)
+
+```shell
+fdisk /dev/sda
+```
+|  Particion  | Tamaño |  Tipo de particion |
+| ----------- | ------ | ------------------ |
+| `/dev/sda1` |  512M  | EFI (FAT-12/16/32) |
+| `/dev/sda2` |   4G   |    Linux swap      |
+| `/dev/sda3` | 15.5G  |       Linux        |
+
