@@ -19,21 +19,21 @@ loadkeys es
 ```
 
 * Comprobamos que tenemos conexión
+La interfaz tiene que estar `UP`
 
 ```shell
 ip link
 ```
-La interfaz tiene que estar `UP`
+Comprobamos que tenemos una dirección asignada
 
 ```shell
 ip a
 ```
-Comprobamos que tenemos una dirección asignada
+Comprobamos que podemos hacer `ping`
 
 ```shell
 ping -c 1 archlinux.org
 ```
-Comprobamos que podemos hacer `ping`
 
 * Actualizamos la hora del sistema
 
@@ -57,3 +57,19 @@ fdisk /dev/sda
 | `/dev/sda2` |   4G   |    Linux swap      |
 | `/dev/sda3` | 15.5G  |       Linux        |
 
+Formateamos las particiones
+
+```shell
+mkfs.fat -F 32 /dev/sda1
+mkswap /dev/sda2
+mkfs.ext4 /dev/sda3
+```
+Montamos las particiones
+
+```shell
+mount /dev/sda3 /mnt
+mount --mkdir /dev/sda1 /mnt/boot
+swapon /dev/sda2
+```
+
+* Instalamos los paquetes esenciales
