@@ -7,6 +7,7 @@ https://archlinux.org/download/
 * Selecciona Debian como tipo de SO
 * Selecciona UEFI como tipo de firmware (con BIOS la configuración cambia ligeramente)
 * Configura la máquina virtual
+  - Espacio de almacenamiento minimo 20GB
 
 ## Iniciamos la máquina virtual
 * Selecciona el modo de instalación
